@@ -624,7 +624,7 @@ def print_config(config):
     print format_config(config)
 
 def print_config_with_document_header(config):
-	print "---"
+    print "---"
     print_config(config)
 
 def obj_by_ref(o, path):

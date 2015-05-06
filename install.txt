@@ -1,0 +1,8 @@
+# Configure Doc http://configure.readthedocs.org/en/latest/
+
+# Configure  github URL  https://github.com/andreypopp/configure.git  
+sudo apt-get install python-yaml python-setuptools
+
+sudo python setup.py install
+
+
