@@ -20,7 +20,7 @@ except ImportError:
 
 __all__ = (
     "Configuration", "ConfigurationError", "configure_logging",
-    "format_config", "print_config", "import_string", "ImportStringError")
+    "format_config", "print_config", "print_config_with_document_header", "import_string", "ImportStringError")
 
 class ConfigurationError(ValueError):
     """ Configuration error"""
@@ -613,7 +613,7 @@ def format_config(config, _lvl=0):
     indent = "  " * _lvl
     buf = ""
     for k, v in sorted(config.items()):
-        buf += "%s%s:\n" % (indent, k)
+        buf += "%s%s:" % (indent, k)
         if isinstance(v, Configuration):
             buf += format_config(v, _lvl + 1)
         else:
@@ -622,6 +622,10 @@ def format_config(config, _lvl=0):
 
 def print_config(config):
     print format_config(config)
+
+def print_config_with_document_header(config):
+	print "---"
+    print_config(config)
 
 def obj_by_ref(o, path):
     for s in path.split("."):
